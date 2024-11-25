@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.maindiv{
+        width: 100vw;
+        height: 100vh;
+        background-image: url(img6.jpg);
+        background-size: 100% 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+       .container{
+          height: 80vh;
+          width: 26vw;
+          backdrop-filter: blur(10px);
+          background:rgb(255,255,255,0.2);
+          padding: 1rem;
+          border-radius: 12px;
+          border: 2px solid #fff;
+       }
+        input{        
+         outline: none;
+         border: none;
+         border-bottom: 1px solid blue;
+         border-radius: 100px;
+         font-size: 16px ;
+        }
+        #age1 input{
+            width: 200px;
+        }
+        .age{
+            margin: auto;
+
+        }
+        .age label{
+            font-size: 23px;
+            font-weight: bold;    
+        }
+        .gender{
+            font-size: 23px;
+            font-weight: bold;
+        }
+        .height label{
+            font-size: 23px;
+            font-weight: bold;
+        }
+        .weight{
+            font-size: 23px;
+            font-weight: bold;
+        }
+        button{
+            width: 200px;
+            height: 30px;
+            text-align: center;
+           margin-top: 10px;
+            font-size: 23px;
+            font-weight: bold;
+            border-radius: 5px;
+           
+        }
+        .result{
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .comment{
+            font-size: 23px;
+            font-weight: bold;
+        }
+</style>
+
+
+</head>
+<body>
+       <div class="maindiv">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 py-3 py-md-0 ">
+            <h1>BMI CALCULATOR</h1>
+
+                <div class="age">
+                <label>AGE:</label>
+                <input type="number" id="age1"><br><br>
+            </div>
+            <div class="gender">
+                <label>GENDER:</label>
+                <input type="radio" id="Gender">Male
+                       <input type="radio" name="Gender">Female<br><br>
+                    </div> 
+              <div class="weight">
+            <label>Weight in KG:</label>
+            <input type="number" id="weight"><br><br>
+        </div>
+           <div class="height">
+            <label>Height in CM:</label>
+            <input type="number" id="height"><br><br>
+        </div> 
+        <div class="button">
+            <button type="submit" onclick="calculate()">calculate</button>
+        </div>
+        <div class="result">
+          <h4> Your BMI is: </h4>
+           <div id="bmi-out"></div>
+
+        </div>
+        <div class="comment">
+            
+            <h4 id="bmi-comment"></h4>
+        </div>
+        </div>
+</div>
+    <script>
+
+      function calculate()
+{
+    var weight=(document.getElementById("weight").value);
+    var height=(document.getElementById("height").value);
+    var result=(weight)/((height*height/10000));
+
+document.getElementById("bmi-out").innerHTML=result;
+
+     if(result<18)
+     {
+        document.getElementById("bmi-comment").innerHTML="Comment:You are underweight";
+     }
+   else if(result<25)
+   {
+    document.getElementById("bmi-comment").innerHTML="Comment: You are Normal weight";
+   }
+   else if(result<30)
+    {
+     document.getElementById("bmi-comment").innerHTML="Comment: You are over weight";
+    }
+    else if(result<35)
+        {
+         document.getElementById("bmi-comment").innerHTML="Comment: You are obesity";
+        }
+    
+}
+
+
+    </script>
+</body>
+</html>
